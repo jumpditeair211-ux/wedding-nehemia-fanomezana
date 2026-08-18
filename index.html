@@ -1,0 +1,113 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#090705">
+<title>Wedding Nehemia & Fanomezana</title>
+<style>
+*{box-sizing:border-box}
+html,body{margin:0;width:100%;height:100%;overflow:hidden;background:#080604}
+body{font-family:Georgia,"Times New Roman",serif}
+:root{--gold:#d8aa49;--gold2:#ffe8a4;--silver:#e7e8eb;--deep:#090705}
+.stage{position:relative;width:100vw;height:100vh;height:100dvh;overflow:hidden;background:radial-gradient(circle at 50% 38%,rgba(197,145,49,.20),transparent 28%),radial-gradient(circle at 50% 80%,rgba(230,230,230,.05),transparent 30%),linear-gradient(180deg,#16100b 0%,#090705 55%,#040302 100%);isolation:isolate}
+.aurora{position:absolute;inset:-25%;z-index:0;background:conic-gradient(from 0deg at 50% 50%,transparent 0 15%,rgba(255,220,128,.08) 22%,transparent 30% 52%,rgba(235,238,245,.06) 60%,transparent 68% 100%);filter:blur(45px);animation:spin 12s linear infinite}
+.panel{position:absolute;top:0;bottom:0;width:50.5%;z-index:10;overflow:hidden;background:linear-gradient(120deg,rgba(255,255,255,.06),transparent 25%),repeating-linear-gradient(100deg,#1b1208 0 7%,#6b470d 10%,#d9aa45 14%,#fff0a6 17%,#865a14 22%,#281706 28%);box-shadow:inset 0 0 90px rgba(0,0,0,.62),0 0 30px rgba(0,0,0,.7);will-change:transform,clip-path}
+.panel.left{left:0;clip-path:polygon(0 0,100% 0,96% 50%,100% 100%,0 100%)}
+.panel.right{right:0;clip-path:polygon(0 0,100% 0,100% 100%,0 100%,4% 50%)}
+.panel::after{content:"";position:absolute;inset:0;background:repeating-linear-gradient(90deg,transparent 0 9%,rgba(255,255,255,.10) 11%,rgba(0,0,0,.16) 15%,transparent 19%);mix-blend-mode:overlay}
+.panel.left.open{animation:openLeft 2.25s cubic-bezier(.68,0,.2,1) forwards}
+.panel.right.open{animation:openRight 2.25s cubic-bezier(.68,0,.2,1) forwards}
+.seam{position:absolute;z-index:12;left:50%;top:0;width:2px;height:100%;transform:translateX(-50%);background:linear-gradient(180deg,transparent,#fff0ad 18%,#b37a1c 50%,#fff0ad 82%,transparent);box-shadow:0 0 16px rgba(255,216,104,.55);animation:seamFade .5s 1.3s forwards}
+.content{position:absolute;z-index:3;left:50%;top:48%;width:min(82vw,780px);transform:translate(-50%,-50%);text-align:center;opacity:1}
+.logo{position:relative;width:118px;height:72px;margin:0 auto 8px}
+.logo .ring{position:absolute;top:7px;width:57px;height:57px;border-radius:50%;border:5px solid var(--gold);box-shadow:0 0 16px rgba(255,216,117,.18)}
+.logo .r1{left:15px}.logo .r2{right:15px;border-color:var(--silver)}
+.logo .heart{position:absolute;left:50%;top:27px;transform:translateX(-50%);color:#e4b04a;font-size:26px}
+.kicker{color:#efeee9;font-weight:700;font-size:clamp(11px,2.8vw,17px);letter-spacing:.34em;margin:10px 0 12px}
+.title{margin:0;font-size:clamp(46px,11vw,92px);line-height:.92;font-weight:600;color:transparent;background:linear-gradient(110deg,#8f5b11,#e1b04a 20%,#fff0a4 38%,#fff 49%,#d4a03d 66%,#fff1af 82%,#83520d);-webkit-background-clip:text;background-clip:text;filter:drop-shadow(0 7px 18px rgba(0,0,0,.6))}
+.names{margin-top:24px;color:#e5b75b;font-size:clamp(20px,5vw,40px);white-space:nowrap;text-shadow:0 4px 14px rgba(0,0,0,.65)}
+.names span{color:#e7e8eb;font-style:italic;padding:0 .12em}
+.flourish{margin-top:19px;color:#c99435;font-size:clamp(16px,4vw,25px);letter-spacing:.08em}
+.subtitle{margin-top:12px;color:#d7d3cb;font-size:12px;letter-spacing:.18em;text-transform:uppercase;opacity:.8}
+.particles{position:absolute;inset:0;z-index:5;pointer-events:none;overflow:hidden}
+.particle{position:absolute;bottom:-60px;opacity:0;animation:rise var(--dur) var(--delay) ease-out forwards}
+.star{color:var(--c);font-size:var(--size);text-shadow:0 0 12px currentColor}
+.orb{width:var(--size);height:var(--size);border-radius:50%;background:radial-gradient(circle at 35% 30%,#fff,var(--c) 38%,rgba(80,55,15,.65) 100%)}
+.progress-wrap{position:absolute;z-index:7;left:50%;bottom:max(28px,env(safe-area-inset-bottom));transform:translateX(-50%);width:min(72vw,420px);text-align:center;opacity:0;animation:fadeIn .7s 2.7s forwards}
+.progress{height:2px;width:100%;background:rgba(255,255,255,.10);overflow:hidden}
+.progress::before{content:"";display:block;width:0;height:100%;background:linear-gradient(90deg,#9b6716,#ffe89d,#e9e9e9,#d19c34);animation:load 3.5s 2.8s linear forwards}
+.progress-text{margin-top:9px;color:#bfb9af;font-size:10px;letter-spacing:.20em;text-transform:uppercase}
+@keyframes openLeft{0%{transform:translateX(0) scaleX(1)}60%{transform:translateX(-62%) scaleX(.58)}100%{transform:translateX(-103%) scaleX(.28)}}
+@keyframes openRight{0%{transform:translateX(0) scaleX(1)}60%{transform:translateX(62%) scaleX(.58)}100%{transform:translateX(103%) scaleX(.28)}}
+@keyframes seamFade{to{opacity:0}}
+@keyframes rise{0%{transform:translateY(0) translateX(0) scale(.7) rotate(0);opacity:0}12%{opacity:.95}80%{opacity:.9}100%{transform:translateY(-115vh) translateX(var(--drift)) scale(1.1) rotate(var(--rot));opacity:0}}
+@keyframes spin{to{transform:rotate(360deg)}}
+@keyframes fadeIn{to{opacity:1}}
+@keyframes load{to{width:100%}}
+@media(max-width:600px){.content{width:76vw;top:47%}.title{font-size:clamp(42px,12vw,66px)}.names{font-size:clamp(17px,4.6vw,27px)}.kicker{font-size:10px;letter-spacing:.28em}.logo{transform:scale(.9)}}
+</style>
+</head>
+<body>
+<div class="stage">
+  <div class="aurora"></div>
+  <div class="content">
+    <div class="logo"><span class="ring r1"></span><span class="ring r2"></span><span class="heart">♥</span></div>
+    <div class="kicker">WELCOME TO</div>
+    <h1 class="title">WEDDING</h1>
+    <div class="names">NEHEMIA <span>&amp;</span> FANOMEZANA</div>
+    <div class="flourish">──── ❦ ────</div>
+    <div class="subtitle">A beautiful beginning</div>
+  </div>
+  <div class="particles" id="particles"></div>
+  <div class="panel left" id="leftPanel"></div>
+  <div class="panel right" id="rightPanel"></div>
+  <div class="seam"></div>
+  <div class="progress-wrap">
+    <div class="progress"></div>
+    <div class="progress-text">Opening your invitation</div>
+  </div>
+</div>
+<script>
+(function(){
+  const TARGET="https://sites.google.com/view/bebesynyraitapo/accueil";
+  const left=document.getElementById("leftPanel");
+  const right=document.getElementById("rightPanel");
+  const particles=document.getElementById("particles");
+
+  function addParticle(type,i){
+    const p=document.createElement("div");
+    p.className="particle "+type;
+    const colors=["#e2b24b","#ffe8a4","#dfe1e6","#ffffff"];
+    p.style.setProperty("--c",colors[i%colors.length]);
+
+    if(type==="star"){
+      p.textContent=["★","✦","✧","⋆"][i%4];
+      p.style.setProperty("--size",(13+Math.random()*23)+"px");
+    }else{
+      p.style.setProperty("--size",(9+Math.random()*13)+"px");
+    }
+
+    p.style.setProperty("--dur",(3.0+Math.random()*2.0)+"s");
+    p.style.setProperty("--delay",(1.55+Math.random()*1.15)+"s");
+    p.style.setProperty("--drift",(-55+Math.random()*110)+"px");
+    p.style.setProperty("--rot",(-100+Math.random()*200)+"deg");
+    p.style.left=(3+Math.random()*94)+"%";
+    particles.appendChild(p);
+  }
+
+  for(let i=0;i<28;i++) addParticle("star",i);
+  for(let i=0;i<18;i++) addParticle("orb",i);
+
+  setTimeout(function(){
+    left.classList.add("open");
+    right.classList.add("open");
+  },650);
+
+  setTimeout(function(){
+    window.location.replace(TARGET);
+  },6700);
+})();
+</script>
+</body>
+</html>
