@@ -1,18 +1,19 @@
-WEDDING CURTAIN OPENING v2
+WEDDING CURTAIN OPENING - V2 FIXED
 
-CHANGES:
-- Curtains no longer disappear completely.
-- A rope/tassel visibly pulls down before opening.
-- Curtains gather/tie toward upper-left and upper-right sides.
-- Gold and silver stars rise after the curtains begin opening.
-- Gold and silver balloons float upward.
-- Automatic redirect to the existing Google Sites page after 6.8 seconds.
+FIXES:
+- The text is fully hidden while curtains are closed.
+- The text appears only after the curtains have started opening.
+- Curtains remain visible at the left and right edges.
+- The full names NEHEMIA & FANOMEZANA stay centered and visible.
+- Golden/silver stars and balloons rise after opening begins.
+- Automatic redirect to the Google Sites page after 7.2 seconds.
 
-UPLOAD TO YOUR EXISTING GITHUB REPOSITORY:
-1. Open wedding-nehemia-fanomezana.
-2. Upload/replace index.html, style.css and script.js with these new files.
-3. Commit changes.
-4. Wait about 1 minute and refresh your GitHub Pages URL.
+REPLACE THESE FILES IN YOUR EXISTING GITHUB REPOSITORY:
+index.html
+style.css
+script.js
 
-Destination remains:
-https://sites.google.com/view/bebesynyraitapo/accueil
+Keep:
+Source = Deploy from a branch
+Branch = main
+Folder = /(root)
