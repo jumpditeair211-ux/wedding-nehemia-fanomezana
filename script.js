@@ -1,9 +1,7 @@
-const TARGET_URL =
-  "https://sites.google.com/view/bebesynyraitapo/accueil";
+const TARGET_URL = "https://sites.google.com/view/bebesynyraitapo/accueil";
 
 const left = document.querySelector(".curtain.left");
 const right = document.querySelector(".curtain.right");
-const content = document.getElementById("centerContent");
 const box = document.getElementById("particles");
 const skip = document.getElementById("skip");
 
@@ -11,17 +9,11 @@ const skip = document.getElementById("skip");
 setTimeout(() => {
   left.classList.add("open");
   right.classList.add("open");
-}, 700);
-
-// Rehefa efa misokatra ny rideaux vao miseho ny soratra
-setTimeout(() => {
-  content.classList.add("show");
-}, 2100);
+}, 650);
 
 // Mamorona kintana sy ballon Golden/Silver
 function particle(type, i) {
   const e = document.createElement("div");
-
   e.className = type;
 
   if (type === "star") {
@@ -35,6 +27,69 @@ function particle(type, i) {
     "#ffffff"
   ];
 
+  e.style.setProperty(
+    "--c",
+    palette[i % palette.length]
+  );
+
+  e.style.setProperty(
+    "--size",
+    type === "star"
+      ? (12 + Math.random() * 24) + "px"
+      : (20 + Math.random() * 24) + "px"
+  );
+
+  e.style.setProperty(
+    "--dur",
+    (3.4 + Math.random() * 2.1) + "s"
+  );
+
+  e.style.setProperty(
+    "--delay",
+    (1.9 + Math.random() * 1.0) + "s"
+  );
+
+  e.style.setProperty(
+    "--drift",
+    (-48 + Math.random() * 96) + "px"
+  );
+
+  e.style.setProperty(
+    "--rot",
+    (-90 + Math.random() * 180) + "deg"
+  );
+
+  e.style.left =
+    (4 + Math.random() * 92) + "%";
+
+  box.appendChild(e);
+}
+
+// Kintana
+for (let i = 0; i < 24; i++) {
+  particle("star", i);
+}
+
+// Ballon
+for (let i = 0; i < 10; i++) {
+  particle("balloon", i);
+}
+
+// Redirect
+let going = false;
+
+function go() {
+  if (going) return;
+
+  going = true;
+  location.href = TARGET_URL;
+}
+
+// ENTER button
+skip.onclick = go;
+
+// Rehefa tapitra ny animation
+setTimeout(go, 7200);
   e.style.setProperty(
     "--c",
     palette[i % palette.length]
