@@ -9,32 +9,350 @@ window.addEventListener(
   "load",
   function () {
 
+
     const left =
-      document.querySelector(
-        ".curtain-left"
+      document.getElementById(
+        "curtainLeft"
       );
 
+
     const right =
-      document.querySelector(
-        ".curtain-right"
+      document.getElementById(
+        "curtainRight"
       );
+
 
     const particles =
       document.getElementById(
         "particles"
       );
 
-    const skip =
-      document.getElementById(
-        "skip"
-      );
+
+    /*
+    =====================================
+    MISOKATRA NY RIDEAUX
+    =====================================
+    */
+
+
+    window.setTimeout(
+      function () {
+
+
+        if (left) {
+
+          left.classList.add(
+            "open"
+          );
+
+        }
+
+
+        if (right) {
+
+          right.classList.add(
+            "open"
+          );
+
+        }
+
+
+      },
+      700
+    );
 
 
     /*
-    =========================
-    MISOKATRA NY RIDEAUX
-    =========================
+    =====================================
+    PARTICLES
+    =====================================
     */
+
+
+    function createParticle(
+      type,
+      index
+    ) {
+
+
+      if (!particles) {
+        return;
+      }
+
+
+      const element =
+        document.createElement(
+          "div"
+        );
+
+
+      element.className =
+        type;
+
+
+      /*
+      KINTANA
+      */
+
+
+      if (
+        type === "star"
+      ) {
+
+
+        const stars = [
+
+          "★",
+
+          "✦",
+
+          "✧",
+
+          "⋆"
+
+        ];
+
+
+        element.textContent =
+
+          stars[
+            index %
+            stars.length
+          ];
+
+      }
+
+
+      /*
+      GOLD / SILVER
+      */
+
+
+      const colors = [
+
+        "#e8b23c",
+
+        "#ffe7a1",
+
+        "#d8d9dd",
+
+        "#ffffff"
+
+      ];
+
+
+      element.style.setProperty(
+
+        "--particle-color",
+
+        colors[
+          index %
+          colors.length
+        ]
+
+      );
+
+
+      /*
+      SIZE
+      */
+
+
+      let size;
+
+
+      if (
+        type === "star"
+      ) {
+
+
+        size =
+          13 +
+          Math.random() * 24;
+
+
+      } else {
+
+
+        size =
+          22 +
+          Math.random() * 25;
+
+      }
+
+
+      element.style.setProperty(
+
+        "--particle-size",
+
+        size + "px"
+
+      );
+
+
+      /*
+      DURATION
+      */
+
+
+      element.style.setProperty(
+
+        "--duration",
+
+        (
+          3.6 +
+          Math.random() * 2
+        ) +
+        "s"
+
+      );
+
+
+      /*
+      DELAY
+      */
+
+
+      element.style.setProperty(
+
+        "--delay",
+
+        (
+          1.8 +
+          Math.random() * 1.2
+        ) +
+        "s"
+
+      );
+
+
+      /*
+      DRIFT
+      */
+
+
+      element.style.setProperty(
+
+        "--drift",
+
+        (
+          -55 +
+          Math.random() * 110
+        ) +
+        "px"
+
+      );
+
+
+      /*
+      ROTATION
+      */
+
+
+      element.style.setProperty(
+
+        "--rotation",
+
+        (
+          -100 +
+          Math.random() * 200
+        ) +
+        "deg"
+
+      );
+
+
+      /*
+      POSITION
+      */
+
+
+      element.style.left =
+
+        (
+          3 +
+          Math.random() * 94
+        ) +
+        "%";
+
+
+      particles.appendChild(
+        element
+      );
+
+    }
+
+
+    /*
+    =====================================
+    28 KINTANA
+    =====================================
+    */
+
+
+    for (
+      let i = 0;
+      i < 28;
+      i++
+    ) {
+
+
+      createParticle(
+        "star",
+        i
+      );
+
+    }
+
+
+    /*
+    =====================================
+    12 BALLON
+    =====================================
+    */
+
+
+    for (
+      let i = 0;
+      i < 12;
+      i++
+    ) {
+
+
+      createParticle(
+        "balloon",
+        i
+      );
+
+    }
+
+
+    /*
+    =====================================
+    REDIRECT AUTOMATIQUE
+
+    TSY MISY ENTER.
+    TSY MILA TSINDRINA.
+    =====================================
+    */
+
+
+    window.setTimeout(
+      function () {
+
+
+        window.location.replace(
+          TARGET_URL
+        );
+
+
+      },
+      7200
+    );
+
+
+  }
+);    */
 
     setTimeout(
       function () {
