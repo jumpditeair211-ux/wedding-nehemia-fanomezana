@@ -1,58 +1,43 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="theme-color" content="#120b06" />
-  <title>Wedding Nehemia & Fanomezana</title>
-  <link rel="stylesheet" href="style.css" />
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Wedding Nehemia & Fanomezana</title>
+<link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <main class="stage" aria-label="Wedding welcome animation">
-    <div class="ambient ambient-1"></div>
-    <div class="ambient ambient-2"></div>
+<div class="stage" id="stage">
+  <div class="glow"></div>
 
-    <div class="backdrop">
-      <div class="monogram" aria-hidden="true">
-        <div class="ring ring-left"></div>
-        <div class="ring ring-right"></div>
-        <div class="sparkle s1">✦</div>
-        <div class="sparkle s2">✧</div>
-        <div class="sparkle s3">✦</div>
-      </div>
+  <div class="welcome">
+    <div class="rings"><span></span><span></span><b>♥</b></div>
+    <div class="small">WELCOME TO</div>
+    <div class="wedding">WEDDING</div>
+    <div class="names">NEHEMIA <em>&amp;</em> FANOMEZANA</div>
+    <div class="flourish">──── ❦ ────</div>
+  </div>
 
-      <div class="welcome-card">
-        <div class="ornament">❦</div>
-        <p class="eyebrow">WELCOME TO WEDDING</p>
-        <h1>NEHEMIA <span>&amp;</span> FANOMEZANA</h1>
-        <p class="date-line">A beautiful beginning</p>
-        <div class="divider"><i></i><b>◆</b><i></i></div>
-        <p class="entering">Opening your invitation…</p>
-      </div>
-    </div>
+  <div class="particles" id="particles"></div>
 
-    <div class="curtain curtain-left">
-      <div class="folds"></div>
-      <div class="tie tie-left"><span></span></div>
-    </div>
-    <div class="curtain curtain-right">
-      <div class="folds"></div>
-      <div class="tie tie-right"><span></span></div>
-    </div>
+  <div class="curtain left">
+    <div class="fabric"></div>
+    <div class="rope"><div class="cord"></div><div class="tassel"></div></div>
+    <div class="knot">✦</div>
+  </div>
+  <div class="curtain right">
+    <div class="fabric"></div>
+    <div class="rope"><div class="cord"></div><div class="tassel"></div></div>
+    <div class="knot">✦</div>
+  </div>
 
-    <div class="top-drape">
-      <div class="swag swag-1"></div>
-      <div class="swag swag-2"></div>
-      <div class="swag swag-3"></div>
-      <div class="gold-trim"></div>
-    </div>
+  <div class="top-swag">
+    <div class="swag s1"></div><div class="swag s2"></div><div class="swag s3"></div>
+  </div>
 
-    <div class="flash"></div>
-    <div class="vignette"></div>
-
-    <button id="enterBtn" class="enter-btn" type="button">ENTER WEDDING</button>
-  </main>
-
-  <script src="script.js"></script>
+  <div class="hint">Wedding celebration</div>
+  <button id="skip">ENTER</button>
+</div>
+<script src="script.js"></script>
 </body>
 </html>

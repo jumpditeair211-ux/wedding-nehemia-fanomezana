@@ -1,48 +1,18 @@
-NSSL WEDDING CURTAIN OPENING
-===========================
+WEDDING CURTAIN OPENING v2
 
-Target Google Sites:
+CHANGES:
+- Curtains no longer disappear completely.
+- A rope/tassel visibly pulls down before opening.
+- Curtains gather/tie toward upper-left and upper-right sides.
+- Gold and silver stars rise after the curtains begin opening.
+- Gold and silver balloons float upward.
+- Automatic redirect to the existing Google Sites page after 6.8 seconds.
+
+UPLOAD TO YOUR EXISTING GITHUB REPOSITORY:
+1. Open wedding-nehemia-fanomezana.
+2. Upload/replace index.html, style.css and script.js with these new files.
+3. Commit changes.
+4. Wait about 1 minute and refresh your GitHub Pages URL.
+
+Destination remains:
 https://sites.google.com/view/bebesynyraitapo/accueil
-
-WHAT THIS DOES
---------------
-1. Visitor scans the QR code.
-2. A gold/silver wedding curtain intro appears.
-3. Text shows:
-   WELCOME TO WEDDING
-   NEHEMIA & FANOMEZANA
-4. The curtains open.
-5. After about 5.6 seconds, the browser automatically opens the existing Google Sites page.
-
-FILES
------
-index.html  - Main page
-style.css   - Curtain / wedding animation
-script.js   - Automatic redirect and ENTER WEDDING button
-README.txt  - This guide
-
-QUICK LOCAL TEST
-----------------
-Extract the ZIP and open index.html in a browser.
-Note: Local file testing will still redirect to the live Google Sites URL after the animation.
-
-HOW TO CHANGE THE DESTINATION
------------------------------
-Open script.js and change:
-const TARGET_URL = "https://sites.google.com/view/bebesynyraitapo/accueil";
-
-HOW TO CHANGE THE DISPLAYED NAMES
----------------------------------
-Open index.html and edit:
-NEHEMIA & FANOMEZANA
-
-IMPORTANT FOR THE QR CODE
--------------------------
-For the intro to appear with ANY QR scanner, the QR code must point to the PUBLIC URL
-where this intro page is hosted, not directly to the Google Sites URL.
-
-Recommended simple hosting:
-- GitHub Pages
-- Any other static web hosting that accepts HTML/CSS/JS
-
-After hosting, use the hosted intro URL as the QR destination.
