@@ -1,40 +1,381 @@
+"use strict";
+
+
 const TARGET_URL =
   "https://sites.google.com/view/bebesynyraitapo/accueil";
 
-document.addEventListener("DOMContentLoaded", () => {
 
-  const left = document.querySelector(".curtain.left");
-  const right = document.querySelector(".curtain.right");
-  const box = document.getElementById("particles");
-  const skip = document.getElementById("skip");
+window.addEventListener(
+  "load",
+  function () {
 
-  // MISOKATRA NY RIDEAUX
-  setTimeout(() => {
-
-    if (left) {
-      left.animate(
-        [
-          {
-            transform: "translateX(0) scaleX(1)"
-          },
-          {
-            transform: "translateX(-25%) scaleX(0.85)"
-          },
-          {
-            transform: "translateX(-48%) scaleX(0.62) rotate(-2deg)"
-          }
-        ],
-        {
-          duration: 2400,
-          easing: "cubic-bezier(.64,0,.18,1)",
-          fill: "forwards"
-        }
+    const left =
+      document.querySelector(
+        ".curtain-left"
       );
+
+    const right =
+      document.querySelector(
+        ".curtain-right"
+      );
+
+    const particles =
+      document.getElementById(
+        "particles"
+      );
+
+    const skip =
+      document.getElementById(
+        "skip"
+      );
+
+
+    /*
+    =========================
+    MISOKATRA NY RIDEAUX
+    =========================
+    */
+
+    setTimeout(
+      function () {
+
+        if (left) {
+          left.classList.add(
+            "open"
+          );
+        }
+
+        if (right) {
+          right.classList.add(
+            "open"
+          );
+        }
+
+      },
+      650
+    );
+
+
+    /*
+    =========================
+    PARTICLES
+    =========================
+    */
+
+    function makeParticle(
+      type,
+      index
+    ) {
+
+      if (!particles) {
+        return;
+      }
+
+
+      const item =
+        document.createElement(
+          "div"
+        );
+
+
+      item.className =
+        type;
+
+
+      /*
+      KINTANA
+      */
+
+      if (
+        type === "star"
+      ) {
+
+        const stars = [
+          "★",
+          "✦",
+          "✧",
+          "⋆"
+        ];
+
+
+        item.textContent =
+          stars[
+            index %
+            stars.length
+          ];
+
+      }
+
+
+      /*
+      GOLDEN + SILVER
+      */
+
+      const palette = [
+
+        "#e8b23c",
+
+        "#ffe7a1",
+
+        "#d8d9dd",
+
+        "#ffffff"
+
+      ];
+
+
+      item.style.setProperty(
+
+        "--c",
+
+        palette[
+          index %
+          palette.length
+        ]
+
+      );
+
+
+      /*
+      HABENY
+      */
+
+      if (
+        type === "star"
+      ) {
+
+        item.style.setProperty(
+
+          "--size",
+
+          (
+            12 +
+            Math.random() * 24
+          ) +
+          "px"
+
+        );
+
+      }
+
+      else {
+
+        item.style.setProperty(
+
+          "--size",
+
+          (
+            22 +
+            Math.random() * 25
+          ) +
+          "px"
+
+        );
+
+      }
+
+
+      /*
+      FAHARETAN'NY
+      FANIDINANA
+      */
+
+      item.style.setProperty(
+
+        "--dur",
+
+        (
+          3.6 +
+          Math.random() * 2
+        ) +
+        "s"
+
+      );
+
+
+      /*
+      Manomboka rehefa
+      efa manomboka misokatra
+      ny rideaux
+      */
+
+      item.style.setProperty(
+
+        "--delay",
+
+        (
+          1.7 +
+          Math.random() * 1.4
+        ) +
+        "s"
+
+      );
+
+
+      /*
+      FIHEZIVEZENA
+      GAUCHE/DROITE
+      */
+
+      item.style.setProperty(
+
+        "--drift",
+
+        (
+          -55 +
+          Math.random() * 110
+        ) +
+        "px"
+
+      );
+
+
+      /*
+      ROTATION
+      */
+
+      item.style.setProperty(
+
+        "--rot",
+
+        (
+          -100 +
+          Math.random() * 200
+        ) +
+        "deg"
+
+      );
+
+
+      /*
+      POSITION
+      */
+
+      item.style.left =
+
+        (
+          3 +
+          Math.random() * 94
+        ) +
+        "%";
+
+
+      particles.appendChild(
+        item
+      );
+
     }
 
-    if (right) {
-      right.animate(
-        [
+
+    /*
+    KINTANA
+    */
+
+    for (
+      let i = 0;
+      i < 28;
+      i++
+    ) {
+
+      makeParticle(
+        "star",
+        i
+      );
+
+    }
+
+
+    /*
+    BALLON
+    */
+
+    for (
+      let i = 0;
+      i < 12;
+      i++
+    ) {
+
+      makeParticle(
+        "balloon",
+        i
+      );
+
+    }
+
+
+    /*
+    =========================
+    ENTER BUTTON
+    =========================
+    */
+
+    setTimeout(
+      function () {
+
+        if (skip) {
+
+          skip.classList.add(
+            "visible"
+          );
+
+        }
+
+      },
+      4300
+    );
+
+
+    /*
+    =========================
+    REDIRECT
+    =========================
+    */
+
+    let redirecting =
+      false;
+
+
+    function enterSite() {
+
+      if (
+        redirecting
+      ) {
+        return;
+      }
+
+
+      redirecting =
+        true;
+
+
+      window.location.href =
+        TARGET_URL;
+
+    }
+
+
+    if (skip) {
+
+      skip.addEventListener(
+        "click",
+        enterSite
+      );
+
+    }
+
+
+    /*
+    8 secondes eo ho eo
+    dia miditra Google Sites
+    */
+
+    setTimeout(
+      enterSite,
+      8000
+    );
+
+  }
+);        [
           {
             transform: "translateX(0) scaleX(1)"
           },
