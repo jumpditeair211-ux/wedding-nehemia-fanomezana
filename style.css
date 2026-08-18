@@ -5,20 +5,27 @@
 html,
 body {
   margin: 0;
+  padding: 0;
+
   width: 100%;
   height: 100%;
+
   overflow: hidden;
-  background: #070503;
+
+  background: #050403;
 }
 
 body {
-  font-family: Georgia, "Times New Roman", serif;
+  font-family:
+    Georgia,
+    "Times New Roman",
+    serif;
 }
 
 
-/* =========================
+/* ==============================
    STAGE
-========================= */
+============================== */
 
 .stage {
   position: relative;
@@ -29,12 +36,955 @@ body {
 
   overflow: hidden;
 
-  background: #080604;
+  background: #070503;
 
   isolation: isolate;
 }
 
 
+/* ==============================
+   BACKGROUND
+============================== */
+
+.backdrop {
+  position: absolute;
+
+  inset: 0;
+
+  z-index: 1;
+
+  background:
+
+    radial-gradient(
+      circle at 50% 38%,
+      rgba(179, 125, 38, 0.30),
+      transparent 32%
+    ),
+
+    radial-gradient(
+      circle at 50% 82%,
+      rgba(218, 167, 59, 0.12),
+      transparent 30%
+    ),
+
+    linear-gradient(
+      180deg,
+      #181008 0%,
+      #090604 52%,
+      #030201 100%
+    );
+}
+
+
+/* ==============================
+   TEXTE AO AMBADIKY NY RIDEAUX
+============================== */
+
+.center-content {
+  position: absolute;
+
+  z-index: 3;
+
+  left: 50%;
+  top: 48%;
+
+  transform:
+    translate(-50%, -50%);
+
+  width: 68vw;
+
+  max-width: 720px;
+
+  text-align: center;
+
+  pointer-events: none;
+}
+
+
+/* WELCOME */
+
+.welcome {
+  margin-top: 8px;
+  margin-bottom: 13px;
+
+  color: #f2eee5;
+
+  font-size:
+    clamp(
+      10px,
+      2.5vw,
+      18px
+    );
+
+  font-weight: 600;
+
+  letter-spacing: 0.34em;
+
+  white-space: nowrap;
+}
+
+
+/* WEDDING */
+
+.wedding {
+  font-size:
+    clamp(
+      42px,
+      10vw,
+      82px
+    );
+
+  line-height: 0.95;
+
+  font-weight: 500;
+
+  color: transparent;
+
+  background:
+    linear-gradient(
+      110deg,
+      #8b570e,
+      #e5b84e,
+      #fff0a2,
+      #ffffff,
+      #d3a03a,
+      #fff0a1,
+      #80500c
+    );
+
+  -webkit-background-clip: text;
+
+  background-clip: text;
+
+  filter:
+    drop-shadow(
+      0 5px 12px
+      rgba(0, 0, 0, 0.7)
+    );
+}
+
+
+/* NAMES */
+
+.names {
+  margin-top: 22px;
+
+  color: #e6b95e;
+
+  font-size:
+    clamp(
+      17px,
+      4.3vw,
+      37px
+    );
+
+  line-height: 1.2;
+
+  white-space: nowrap;
+
+  text-shadow:
+    0 3px 12px
+    rgba(0, 0, 0, 0.8);
+}
+
+.names em {
+  color: #eeeeee;
+
+  font-style: normal;
+
+  font-size: 0.8em;
+}
+
+
+/* DECORATION */
+
+.flourish {
+  margin-top: 18px;
+
+  color: #c99433;
+
+  font-size:
+    clamp(
+      17px,
+      4vw,
+      27px
+    );
+
+  letter-spacing: 0.08em;
+}
+
+
+/* ==============================
+   WEDDING RINGS
+============================== */
+
+.rings {
+  position: relative;
+
+  width: 130px;
+  height: 72px;
+
+  margin: 0 auto;
+}
+
+.ring {
+  position: absolute;
+
+  top: 7px;
+
+  width: 58px;
+  height: 58px;
+
+  border-radius: 50%;
+
+  border:
+    5px solid
+    #d9a13a;
+
+  box-shadow:
+    0 0 14px
+    rgba(255, 218, 112, 0.22);
+}
+
+.ring.gold {
+  left: 18px;
+
+  border-color:
+    #d9a13a;
+}
+
+.ring.silver {
+  right: 18px;
+
+  border-color:
+    #ededed;
+}
+
+.rings b {
+  position: absolute;
+
+  z-index: 2;
+
+  left: 50%;
+  top: 27px;
+
+  transform:
+    translateX(-50%);
+
+  color: #dda944;
+
+  font-size: 27px;
+}
+
+
+/* ==============================
+   RIDEAUX
+============================== */
+
+.curtain {
+  position: absolute;
+
+  z-index: 10;
+
+  top: 0;
+
+  width: 50.5vw;
+  height: 100%;
+
+  overflow: hidden;
+
+  will-change: transform;
+
+  filter:
+    drop-shadow(
+      0 0 20px
+      rgba(0, 0, 0, 0.9)
+    );
+}
+
+
+/* GAUCHE */
+
+.curtain-left {
+  left: 0;
+
+  transform:
+    translateX(0);
+
+  transform-origin:
+    left center;
+}
+
+
+/* DROITE */
+
+.curtain-right {
+  right: 0;
+
+  transform:
+    translateX(0);
+
+  transform-origin:
+    right center;
+}
+
+
+/* ==============================
+   GOLD FABRIC
+============================== */
+
+.fabric {
+  position: absolute;
+
+  inset: 0;
+
+  background:
+
+    repeating-linear-gradient(
+      90deg,
+
+      #241204 0%,
+
+      #5b3508 4%,
+
+      #b27616 8%,
+
+      #f0c95f 12%,
+
+      #fff0a2 15%,
+
+      #b77a1b 19%,
+
+      #70430b 23%,
+
+      #e1b34a 27%,
+
+      #fff0a4 31%,
+
+      #80500e 36%
+    );
+
+  box-shadow:
+
+    inset 0 0 90px
+    rgba(0, 0, 0, 0.58);
+}
+
+
+/* ==============================
+   RIDEAU REHEFA VOAFATOTRA
+============================== */
+
+.curtain-left.open .fabric {
+
+  clip-path:
+    polygon(
+      0 0,
+      100% 0,
+
+      77% 15%,
+      61% 32%,
+
+      50% 50%,
+
+      61% 68%,
+      77% 85%,
+
+      100% 100%,
+      0 100%
+    );
+}
+
+
+.curtain-right.open .fabric {
+
+  clip-path:
+    polygon(
+      0 0,
+      100% 0,
+      100% 100%,
+      0 100%,
+
+      23% 85%,
+      39% 68%,
+
+      50% 50%,
+
+      39% 32%,
+      23% 15%
+    );
+}
+
+
+/* ==============================
+   TADY / MEDAILLON
+============================== */
+
+.tie {
+  position: absolute;
+
+  z-index: 12;
+
+  top: 51%;
+
+  width: 55px;
+
+  opacity: 0;
+
+  transition:
+    opacity 0.4s ease;
+}
+
+
+.curtain-left .tie {
+  right: 1px;
+}
+
+
+.curtain-right .tie {
+  left: 1px;
+}
+
+
+.curtain.open .tie {
+  opacity: 1;
+}
+
+
+.medallion {
+  position: relative;
+
+  z-index: 3;
+
+  width: 48px;
+  height: 48px;
+
+  margin: auto;
+
+  display: grid;
+
+  place-items: center;
+
+  border-radius: 50%;
+
+  border:
+    5px solid
+    #dfb248;
+
+  background:
+    radial-gradient(
+      circle,
+      #8e5b0f,
+      #3c2105
+    );
+
+  color: #ffe89c;
+
+  font-size: 20px;
+
+  box-shadow:
+    0 0 13px
+    rgba(255, 217, 111, 0.35);
+}
+
+
+.rope {
+  width: 6px;
+  height: 65px;
+
+  margin: -1px auto 0;
+
+  border-radius: 4px;
+
+  background:
+    linear-gradient(
+      90deg,
+      #81500c,
+      #ffec99,
+      #93600f
+    );
+}
+
+
+.tassel {
+  width: 29px;
+  height: 37px;
+
+  margin: -1px auto 0;
+
+  background:
+    linear-gradient(
+      90deg,
+      #754409,
+      #f4cc62,
+      #fff0a0,
+      #a46a11
+    );
+
+  clip-path:
+    polygon(
+      28% 0,
+      72% 0,
+      100% 100%,
+      0 100%
+    );
+}
+
+
+/* ==============================
+   OUVERTURE
+============================== */
+
+.curtain-left.open {
+
+  animation:
+    curtainLeftOpen
+    2.6s
+    cubic-bezier(
+      0.62,
+      0,
+      0.18,
+      1
+    )
+    forwards;
+}
+
+
+.curtain-right.open {
+
+  animation:
+    curtainRightOpen
+    2.6s
+    cubic-bezier(
+      0.62,
+      0,
+      0.18,
+      1
+    )
+    forwards;
+}
+
+
+/*
+IMPORTANT:
+
+Miala lavitra ny afovoany ireo rideaux.
+Izany no tsy hanakonany ny soratra.
+*/
+
+@keyframes curtainLeftOpen {
+
+  0% {
+
+    transform:
+      translateX(0)
+      scaleX(1);
+
+  }
+
+
+  40% {
+
+    transform:
+      translateX(-28%)
+      scaleX(0.82);
+
+  }
+
+
+  70% {
+
+    transform:
+      translateX(-54%)
+      scaleX(0.61);
+
+  }
+
+
+  100% {
+
+    transform:
+      translateX(-78%)
+      scaleX(0.43);
+
+  }
+
+}
+
+
+@keyframes curtainRightOpen {
+
+  0% {
+
+    transform:
+      translateX(0)
+      scaleX(1);
+
+  }
+
+
+  40% {
+
+    transform:
+      translateX(28%)
+      scaleX(0.82);
+
+  }
+
+
+  70% {
+
+    transform:
+      translateX(54%)
+      scaleX(0.61);
+
+  }
+
+
+  100% {
+
+    transform:
+      translateX(78%)
+      scaleX(0.43);
+
+  }
+
+}
+
+
+/* ==============================
+   RIDEAU AMBONY
+============================== */
+
+.top-curtain {
+  position: absolute;
+
+  z-index: 15;
+
+  left: 0;
+  top: -45px;
+
+  width: 100%;
+  height: 135px;
+
+  pointer-events: none;
+}
+
+
+.swag {
+  position: absolute;
+
+  top: 0;
+
+  height: 105px;
+
+  border-radius:
+    0 0 55% 55%;
+
+  background:
+    radial-gradient(
+      ellipse at 50% 100%,
+      #f8dd87 0%,
+      #c58a24 33%,
+      #74440c 59%,
+      #301806 85%
+    );
+
+  border-bottom:
+    3px solid
+    #efcf74;
+
+  box-shadow:
+    0 10px 18px
+    rgba(0, 0, 0, 0.45);
+}
+
+
+.swag-left {
+  left: -7%;
+
+  width: 43%;
+
+  transform:
+    rotate(5deg);
+}
+
+
+.swag-center {
+  left: 29%;
+
+  width: 42%;
+}
+
+
+.swag-right {
+  right: -7%;
+
+  width: 43%;
+
+  transform:
+    rotate(-5deg);
+}
+
+
+/* ==============================
+   PARTICLES
+============================== */
+
+.particles {
+  position: absolute;
+
+  z-index: 6;
+
+  inset: 0;
+
+  overflow: hidden;
+
+  pointer-events: none;
+}
+
+
+.star,
+.balloon {
+  position: absolute;
+
+  bottom: -100px;
+
+  opacity: 0;
+
+  animation:
+    particleRise
+    var(--duration)
+    var(--delay)
+    ease-out
+    forwards;
+}
+
+
+.star {
+  color:
+    var(--particle-color);
+
+  font-size:
+    var(--particle-size);
+
+  text-shadow:
+    0 0 13px
+    currentColor;
+}
+
+
+.balloon {
+
+  width:
+    var(--particle-size);
+
+  height:
+    calc(
+      var(--particle-size) * 1.25
+    );
+
+  border-radius:
+    50% 50% 46% 46%;
+
+  background:
+    linear-gradient(
+      125deg,
+
+      rgba(
+        255,
+        255,
+        255,
+        0.95
+      ),
+
+      var(--particle-color)
+      37%,
+
+      rgba(
+        72,
+        46,
+        10,
+        0.82
+      )
+    );
+
+  box-shadow:
+
+    inset -5px -7px 10px
+    rgba(0, 0, 0, 0.22),
+
+    0 0 12px
+    rgba(255, 220, 120, 0.25);
+}
+
+
+.balloon::before {
+
+  content: "";
+
+  position: absolute;
+
+  left: 50%;
+  top: 96%;
+
+  transform:
+    translateX(-50%);
+
+  width: 8px;
+  height: 8px;
+
+  background:
+    var(--particle-color);
+
+  clip-path:
+    polygon(
+      50% 0,
+      100% 100%,
+      0 100%
+    );
+}
+
+
+.balloon::after {
+
+  content: "";
+
+  position: absolute;
+
+  left: 50%;
+  top: 100%;
+
+  width: 1px;
+  height: 70px;
+
+  background:
+    rgba(
+      230,
+      224,
+      210,
+      0.5
+    );
+}
+
+
+@keyframes particleRise {
+
+  0% {
+
+    opacity: 0;
+
+    transform:
+      translateY(0)
+      translateX(0)
+      rotate(0deg);
+
+  }
+
+
+  12% {
+
+    opacity: 0.95;
+
+  }
+
+
+  82% {
+
+    opacity: 0.9;
+
+  }
+
+
+  100% {
+
+    opacity: 0;
+
+    transform:
+      translateY(-120vh)
+      translateX(
+        var(--drift)
+      )
+      rotate(
+        var(--rotation)
+      );
+
+  }
+
+}
+
+
+/* ==============================
+   MOBILE
+============================== */
+
+@media (max-width: 600px) {
+
+  .center-content {
+
+    width: 66vw;
+
+    top: 47%;
+
+  }
+
+
+  .welcome {
+
+    font-size: 10px;
+
+    letter-spacing: 0.26em;
+
+  }
+
+
+  .wedding {
+
+    font-size:
+      clamp(
+        38px,
+        10vw,
+        62px
+      );
+
+  }
+
+
+  .names {
+
+    font-size:
+      clamp(
+        16px,
+        4.2vw,
+        26px
+      );
+
+  }
+
+
+  .top-curtain {
+
+    top: -36px;
+
+    height: 110px;
+
+  }
+
+
+  .swag {
+
+    height: 87px;
+
+  }
+
+
+  .tie {
+
+    top: 55%;
+
+  }
+
+}
 /* =========================
    BACKGROUND
 ========================= */
